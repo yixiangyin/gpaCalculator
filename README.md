@@ -11,7 +11,7 @@
 	- course contains the course code
 	- score contains the score out of 100 OR CRS
 	- unit contains unit for each course
-- An example csv file:
+- [An example csv file](myScores.csv):
 ```
 course,score,unit
 COMP2420,76,6
