@@ -8,9 +8,9 @@
 ## format
 - You should put your marks in a csv(comma seperated) file. 
 - The  csv file should contain 3 columns:
-	- course contains the course code
-	- score contains the score out of 100 OR CRS
-	- unit contains unit for each course
+	- `course` contains the course code
+	- `score` contains the score out of 100 OR CRS
+	- `unit` contains unit for each course
 - [An example csv file](myScores.csv):
 ```
 course,score,unit
