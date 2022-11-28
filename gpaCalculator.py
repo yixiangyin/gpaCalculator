@@ -10,6 +10,7 @@ def main():
     scores = process(sys.argv[1])
     get_average_score(scores)
     get_average_gpa(scores)
+    get_WAM_average(scores)
 
 
 def process(filename):
@@ -86,5 +87,32 @@ def get_average_score(scores):
     average = round(sum / course_count, 2)
     print(f"Your average score: {average}/100")
 
+def get_WAM_average(scores):
+    # include the first 6 highest mark
+    # COMP course only
+    # excluding 1000 level course
+    count = 6
+    cons_count = count
+    
+    # l contains a list of course,score pairs
+    l = []
+    for key in scores:
+        # filter out CRS
+        if type(scores[key]["score"]) is int:
+            l.append((key, scores[key]["score"]))
+    l = sorted(l, key=lambda x:x[1], reverse=True)
+    print(l)
+    sum = 0
+    for idx in range(0, len(l)):
+        if count == 0:
+            break
+        cur_course = l[idx][0]
+        if cur_course[:4].upper() == "COMP" and cur_course[4] != '1':
+            sum += l[idx][1]
+            count -= 1 
+    if count != 0:
+        print("You don't have enough courses to calculate") 
+        return
+    print(f"Your weighted average mark calculated from the 36 units of courses with the highest marks in cognate disciplines (excluding 1000-level courses): {sum / cons_count}/100")
 
 main()
