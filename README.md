@@ -35,3 +35,8 @@ COMP2120,71,6
 COMP1600,89,6
 COMP2700,73,6
 ```
+
+## todo  
+- [ ] add UI
+- [ ] wrap it in a web app
+
