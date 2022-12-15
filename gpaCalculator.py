@@ -7,10 +7,19 @@ def main():
         print("Usage: python3 gpaCalculator.py scores.csv")
         return
     
-    scores = process(sys.argv[1])
+#   print("Original")
+    scores = process(sys.argv[1]) 
     get_average_score(scores)
     get_average_gpa(scores)
     get_WAM_average(scores)
+
+#   print("After adding 2022-S2 result")
+#   result_2022S2 = process("score/2022-S2.csv")
+#   new_scores = scores | result_2022S2
+#   get_average_score(new_scores)
+#   get_average_gpa(new_scores)
+#   get_WAM_average(new_scores)
+
 
 
 def process(filename):
@@ -101,7 +110,6 @@ def get_WAM_average(scores):
         if type(scores[key]["score"]) is int:
             l.append((key, scores[key]["score"]))
     l = sorted(l, key=lambda x:x[1], reverse=True)
-    print(l)
     sum = 0
     for idx in range(0, len(l)):
         if count == 0:
